@@ -1,0 +1,1050 @@
+1. Named Colors
+2. Hexadecimal Colors
+3. RGB/RGBA Colors
+4. HSL/HSLA Colors
+5. CSS currentColors
+6. CSS transparent
+7. System Colors (Deprecated)
+
+
+
+
+Here is a table summarizing the syntax of all major CSS color types:
+
+| **Color Type**           | **Syntax**                                     | **Example**             |
+|--------------------------|------------------------------------------------|-------------------------|
+| **Named Colors**         | `color: <color-name>;`                         | `color: blue;`          |
+| **Hexadecimal (3-digit)**| `color: #RGB;`                                 | `color: #f00;`          |
+| **Hexadecimal (6-digit)**| `color: #RRGGBB;`                              | `color: #ff0000;`       |
+| **Hexadecimal (8-digit)**| `color: #RRGGBBAA;`                            | `color: #ff000080;`     |
+| **RGB**                  | `color: rgb(R, G, B);`                         | `color: rgb(255, 0, 0);`|
+| **RGBA**                 | `color: rgba(R, G, B, A);`                     | `color: rgba(255, 0, 0, 0.5);` |
+| **HSL**                  | `color: hsl(H, S%, L%);`                       | `color: hsl(0, 100%, 50%);` |
+| **HSLA**                 | `color: hsla(H, S%, L%, A);`                   | `color: hsla(0, 100%, 50%, 0.5);` |
+| **Transparent**          | `color: transparent;`                          | `color: transparent;`   |
+| **Current Color**        | `color: currentColor;`                         | `color: currentColor;`  |
+| **System Colors** (Deprecated) | `color: <system-color>;`                | `color: ButtonText;`    |
+
+Would you like further details or a practical demo for any of these?
+
+
+
+
+
+HEX: Best for exact colors in digital design.
+HSL: Best for color scheme design and color adjustments.
+RGB: Best for screen display and color mixing.
+RGBA: Best for transparency and overlay effects.
+Color Names: Best for quick styling.
+CMYK: Best for print designs
+
+
+
+
+
+
+margin: <top> <right> <bottom> <left>;
+
+
+
+
+
+
+css display 
+
+
+### Display Property Limitations and Practical Uses
+
+The `display` property in CSS defines the layout of an element. It helps determine how the element behaves in terms of layout, flow, and visibility. Below is a breakdown of all the display properties from the example, along with their limitations and suitable use cases:
+
+---
+
+### 1. `display: block;`
+- **Description**: Blocks take up the full width of their container. They always start on a new line and respect padding, margin, and border.
+- **Limitations**:
+  - Does not allow elements to sit next to each other inline.
+  - Full-width (100%) by default.
+- **Use Case**: Best for creating sections in web pages (headers, paragraphs, etc.).
+- **Example**:
+  ```html
+  <div class="block-example">
+    <!-- Content that should be displayed as a full-width section -->
+  </div>
+  ```
+
+---
+
+### 2. `display: inline;`
+- **Description**: Inline elements do not start on a new line and only take up as much width as necessary.
+- **Limitations**:
+  - Cannot have width or height properties applied.
+  - No margin or padding on top and bottom.
+- **Use Case**: Used for inline text, links, and elements that sit alongside text.
+- **Example**:
+  ```html
+  <span class="inline-example">This is an inline element</span>
+  ```
+
+---
+
+### 3. `display: inline-block;`
+- **Description**: Behaves like `inline`, but respects padding and margin.
+- **Limitations**:
+  - Needs to have specific width and height if needed.
+- **Use Case**: Great for elements that require padding, margin, or spacing.
+- **Example**:
+  ```html
+  <div class="inline-block-example">
+    <p>Inline-block element example</p>
+  </div>
+  ```
+
+---
+
+### 4. `display: flex;`
+- **Description**: Creates a flexible box layout, allowing you to align and distribute space among items.
+- **Limitations**:
+  - Must define the `flex-direction`, `justify-content`, and `align-items` properties for it to function properly.
+- **Use Case**: Useful for responsive layouts, menu bars, header/footer content that needs flexible alignment.
+- **Example**:
+  ```html
+  <div class="flex-example">
+    <div style="background-color: blue;">Flex Item 1</div>
+    <div style="background-color: red;">Flex Item 2</div>
+    <div style="background-color: green;">Flex Item 3</div>
+  </div>
+  ```
+
+---
+
+### 5. `display: grid;`
+- **Description**: Creates a grid container, making layout items follow rows and columns.
+- **Limitations**:
+  - Requires `grid-template-columns`, `grid-template-rows`, and `gap` to define how grid items will be arranged.
+- **Use Case**: Used for layouts that require rows and columns, like card layouts, dashboards, and content placement.
+- **Example**:
+ 
+  <div class="grid-example">
+    <div style="background-color: lightblue;">Grid Item 1</div>
+    <div style="background-color: lightgreen;">Grid Item 2</div>
+    <div style="background-color: lightcoral;">Grid Item 3</div>
+  </div>
+  ```
+
+---
+
+### 6. `display: table;`
+- **Description**: Creates a table layout where elements are displayed as rows and cells.
+- **Limitations**:
+  - No need to explicitly specify columns or rows unless required.
+- **Use Case**: Useful for tabular data or layout that needs rows and cells.
+- **Example**:
+ 
+  <table class="table-example">
+    <tr class="table-row-example">
+      <td class="table-cell-example">Table Cell 1</td>
+      <td class="table-cell-example">Table Cell 2</td>
+    </tr>
+    <tr class="table-row-example">
+      <td class="table-cell-example">Table Cell 3</td>
+      <td class="table-cell-example">Table Cell 4</td>
+    </tr>
+  </table>
+  ```
+
+---
+
+### 7. `display: table-row;`
+- **Description**: Represents a row in the table. Used inside table elements (`<table>`).
+- **Limitations**:
+  - Must be used inside `<table>`.
+- **Use Case**: Best when you have tabular data and need to separate rows.
+- **Example**:
+  ```html
+  <tr class="table-row-example">
+    <td class="table-cell-example">Table Cell 1</td>
+    <td class="table-cell-example">Table Cell 2</td>
+  </tr>
+  ```
+
+---
+
+### 8. `display: table-cell;`
+- **Description**: Represents a cell in the table. Used inside table rows (`<tr>`).
+- **Limitations**:
+  - Must be used inside a table row.
+- **Use Case**: Suitable when you need to structure tabular data in rows and cells.
+- **Example**:
+  ```html
+  <td class="table-cell-example">Table Cell 1</td>
+  ```
+
+---
+
+### 9. `display: none;`
+- **Description**: Hides the element from view. Removes it from the document flow.
+- **Limitations**:
+  - Still takes up space in layout but does not display.
+- **Use Case**: Useful when you want to hide content temporarily, such as off-screen menus or elements.
+- **Example**:
+  ```html
+  <div class="none-example">This element is hidden.</div>
+  ```
+
+---
+
+### Practical Use and Structure:
+- **Use `block`**: For full-width content and sections. Always starts on a new line.
+- **Use `inline`**: For text-based elements or inline elements like links that need no padding or margin between each other.
+- **Use `inline-block`**: When elements need spacing (padding, margin) and still need to sit next to other elements.
+- **Use `flex`**: When creating flexible layouts with multiple items that need alignment and distribution.
+- **Use `grid`**: When you need items to be placed in rows and columns, and the layout needs to adapt responsively.
+- **Use `table`**: For tabular data or structured row and column layouts.
+- **Use `none`**: To hide elements without removing space taken by it.
+
+### Limitations:
+- `inline` doesn’t respect width or height.
+- `none` hides elements but still occupies layout space.
+- `flex` and `grid` provide powerful responsive layouts but need understanding of `flex-direction`, `justify-content`, `align-items`, and `grid-template` to fully control alignment.
+- `table`, `table-row`, and `table-cell` require proper nesting in `<table>` to function correctly.
+
+This should help you understand when to use each display property and what structure to apply based on different requirements!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here are some common **CSS Display Property** interview questions along with their answers:
+
+---
+
+### **1. What is the difference between `display: block` and `display: inline`?**
+
+- **Answer**:  
+  - `display: block` makes the element take up the full width of its container and starts on a new line.  
+  - `display: inline` allows the element to sit alongside other elements on the same line and only takes up as much width as necessary.  
+  - **Block Example**: `<div>`, `<p>`, `<h1>`, `<section>`  
+  - **Inline Example**: `<span>`, `<a>`, `<strong>`
+
+---
+
+### **2. What is the difference between `display: inline-block` and `display: block`?**
+
+- **Answer**:  
+  - `display: inline-block` combines features of both `inline` and `block`. It sits next to other elements but respects padding, margin, and allows setting width/height.  
+  - `display: block` starts on a new line and takes up the full width of its container.
+  - **Inline-block Example**: `<img>`, `<div>` inside other inline elements.
+
+---
+
+### **3. What is the difference between `display: flex` and `display: grid`?**
+
+- **Answer**:  
+  - `display: flex` creates a flexible layout where items are aligned along one axis (horizontal or vertical), and space is distributed based on alignment properties like `justify-content` and `align-items`.  
+  - `display: grid` creates a grid-based layout with rows and columns, where items are placed based on a defined grid-template structure.  
+  - **Flex Example**: Great for creating flexible, responsive layouts like navigation bars or content sections.  
+  - **Grid Example**: Ideal for layouts with rows and columns, such as card designs or multi-column layouts.
+
+---
+
+### **4. What is `display: table` used for?**
+
+- **Answer**:  
+  - `display: table` creates a table-based layout where elements are structured in rows and cells.  
+  - **Use case**: Used for tabular data or layouts where you need rows and cells.  
+  - Example: `<table>`, `<tr>`, `<td>`, `<th>`
+
+---
+
+### **5. How do you control alignment in a `flex` container?**
+
+- **Answer**:  
+  - You can control alignment in a `flex` container using properties like `justify-content` (horizontal alignment) and `align-items` (vertical alignment).  
+  - `justify-content` values: `flex-start`, `center`, `flex-end`, `space-between`, `space-around`  
+  - `align-items` values: `flex-start`, `center`, `flex-end`, `stretch`
+
+---
+
+### **6. What is the difference between `display: table-cell` and `display: inline`?**
+
+- **Answer**:  
+  - `display: table-cell` represents a cell in a table and allows spacing, padding, and borders.  
+  - `display: inline` allows elements to sit next to each other on the same line and doesn't respect width/height.  
+  - **Table-cell Example**: `<td>`, `<th>` in a table.  
+  - **Inline Example**: `<span>`, `<a>`
+
+---
+
+### **7. Can you use `display: none` on table elements?**
+
+- **Answer**:  
+  - Yes, `display: none` can be used on table elements like `<tr>`, `<td>`, or `<table>`. It will hide the element but still occupy space in the layout.  
+  - It effectively removes the element from view but doesn't remove the space it occupies.
+
+---
+
+### **8. How does `display: grid` work with `grid-template-columns`?**
+
+- **Answer**:  
+  - `grid-template-columns` defines how columns are created in the grid layout.  
+  - It takes values like `auto`, `1fr`, `2fr 1fr`, or `repeat(3, 1fr)` to set equal or specific column widths.  
+  - **Example**:  
+    ```css
+    .grid-example {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 10px;
+    }
+    ```
+
+---
+
+### **9. What are the differences between `display: table-row` and `display: table-cell`?**
+
+- **Answer**:  
+  - `display: table-row` represents a row in a table.  
+  - `display: table-cell` represents a cell inside a table row and allows spacing, padding, and borders.  
+  - **Table-row Example**: `<tr>`  
+  - **Table-cell Example**: `<td>`, `<th>`
+
+---
+
+### **10. What happens when you combine `display: grid` with `grid-gap`?**
+
+- **Answer**:  
+  - `grid-gap` creates space between grid items. It defines both row-gap and column-gap.  
+  - Example: `grid-gap: 10px` applies a 10px gap between rows and columns.
+
+---
+
+### **11. Can you explain the difference between `display: table` and `display: inline-table`?**
+
+- **Answer**:  
+  - `display: table` creates a block-level table that takes the full width and respects padding/margin.  
+  - `display: inline-table` allows tables to behave like inline elements, sitting next to other content on the same line.
+
+---
+
+### **12. When should you use `display: none` in your CSS?**
+
+- **Answer**:  
+  - Use `display: none` when you want to hide an element without removing its space from the layout.  
+  - Example: It’s useful for off-screen elements, toggling visibility, or hiding content temporarily.
+
+---
+
+These questions should help you master the practical usage and limitations of CSS display properties in interviews.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Advance css 
+
+
+
+Sure! Let me explain **corner radius** in a simple and clear way:
+
+### What is **Corner Radius**?
+
+**Corner radius** is a CSS (Cascading Style Sheets) property used to round the corners of HTML elements. Instead of having sharp, square corners, you can apply a **rounded effect** to make them smoother and more aesthetically pleasing, giving your design a modern and sleek appearance.
+
+### How It Works:
+
+In CSS, you can control the **radius** of the corners using the `border-radius` property. The property takes one or more values that define how much you want to round each corner.
+
+### Syntax:
+
+```css
+element {
+  border-radius: value;
+}
+```
+
+- **`value`** can be:
+  - A **length** (like `10px`, `5px`, etc.) — This defines the amount of rounding.
+  - **`50%`** — This makes the corners into **circles** (perfectly round).
+  
+### Types of Corners You Can Round:
+
+1. **All corners**:  
+   To apply the same corner radius to all corners, use:
+   ```css
+   element {
+     border-radius: 10px;  /* Rounds all corners with 10px radius */
+   }
+   ```
+
+2. **Individual corners**:  
+   You can also control each corner independently by specifying four values:  
+   ```css
+   element {
+     border-radius: 10px 5px 15px 20px;
+   }
+   ```
+   Here, you can set:
+   - **Top-left**: `10px`
+   - **Top-right**: `5px`
+   - **Bottom-right**: `15px`
+   - **Bottom-left**: `20px`
+
+3. **Rounded only specific corners**:  
+   Sometimes you may want to round just one or two corners. You can do this by using keywords:
+   ```css
+   element {
+     border-top-left-radius: 10px;
+     border-top-right-radius: 5px;
+   }
+   ```
+
+### Examples of Corner Radius in Action:
+
+- **Sharp corners** (default):
+   ```html
+   <div style="width: 200px; height: 100px; background-color: lightgray;"></div>
+   ```
+   ![Sharp corners example](https://via.placeholder.com/200x100?text=Sharp+Corners)
+
+- **Rounded corners**:
+   ```html
+   <div style="width: 200px; height: 100px; background-color: lightgray; border-radius: 15px;">
+   </div>
+   ```
+   ![Rounded corners example](https://via.placeholder.com/200x100?text=Rounded+Corners)
+
+### Why Use Corner Radius?
+
+- **Aesthetic Appeal**: Rounded corners provide a more modern and softer look to buttons, cards, and other UI elements.
+- **Sleek Design**: Helps in creating visually appealing designs, improving the user experience.
+- **Consistency**: Great for maintaining consistent UI design across multiple elements on a website.
+
+I hope this clears things up! Let me know if you need further explanation on any part.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+diffrence betwen to the cosest side and farthese side 
+
+1. closest-side
+The gradient extends to the side of the container that is nearest to the gradient's center.
+
+
+
+2. farthest-side
+The gradient extends to the side of the container that is farthest from the gradient's center.
+
+
+
+
+
+
+
+
+
+
+
+shadow
+
+
+text-shadow
+text-shadow: horizontal-offset vertical-offset blur-radius color;
+
+box shadow 
+so it can be apply the one more shadow
+
+
+text-effect
+
+
+word-wrap 
+
+The CSS word-wrap property allows long words to be able to be broken and wrap onto the next line. 
+
+
+text-align :  Justified text aligns to both the left and right edges of the container.
+
+
+
+
+
+
+
+p.test1 {
+  word-break: keep-all;// complete the word then move next line
+}
+
+p.test2 {
+  word-break: break-all; // complete the line not complete the word
+}
+
+
+
+
+p.test1 {
+  writing-mode: horizontal-tb;
+}
+
+span.test2 {
+  writing-mode: vertical-rl;
+}
+
+p.test2 {
+  writing-mode: vertical-rl;
+}
+
+verticle text are align the vertucally
+
+
+
+text effect property 
+text-justify    	Specifies how justified text should be aligned and spaced
+text-overflow   	Specifies how overflowed content that is not displayed should be signaled to the user
+word-break	      Specifies line breaking rules for non-CJK scripts
+word-wrap	        Allows long words to be able to be broken and wrap onto the next line
+writing-mode      Specifies whether lines of text are laid out horizontally or vertically
+
+
+
+
+2d transforms
+
+
+
+transform:translate(x axis , y axis); move the  x and y element
+transform:rotate()
+sub property on rotate 
+  transform-origin: top left 
+transform:scale(2,3) ,scale(x,y) data arraive on the x means horizontal y means verticle change  * actual width
+transform:skew(1)  move on the main target x and y axis base on the degree
+          skewX()
+          skewY() data change
+
+
+
+
+
+
+
+
+
+
+          diffrenciate 
+
+
+
+          Here’s the content in a **table format** for easy understanding:
+
+### **2D and 3D Transform Properties**  
+
+| **Property**            | **2D Transform**                                  | **3D Transform**                                     |
+|--------------------------|--------------------------------------------------|-----------------------------------------------------|
+| **Translate**            | `translate(x, y)` – Moves left/right and up/down. | `translate3d(x, y, z)` – Moves in x, y, and z axes. |
+| **Rotate**               | `rotate(angle)` – Rotates around a 2D point.      | `rotateX(angle)` – Rotates around x-axis. <br> `rotateY(angle)` – Rotates around y-axis. <br> `rotateZ(angle)` – Rotates around z-axis (same as 2D rotate). |
+| **Scale**                | `scale(x, y)` – Resizes width and height.         | `scale3d(x, y, z)` – Resizes in x, y, and z dimensions. |
+| **Skew**                 | `skew(x-angle, y-angle)` – Tilts the element.     | Not applicable in 3D.                               |
+| **Perspective**          | Not applicable.                                  | `perspective(value)` – Adds depth to 3D effects.    |
+| **Matrix**               | `matrix(a, b, c, d, e, f)` – Combines 2D effects. | `matrix3d(a1, a2, ..., a16)` – Combines 3D effects. |
+
+---
+
+### **CSS `position` Properties**
+
+| **Property**   | **Description**                                                                                   |
+|-----------------|---------------------------------------------------------------------------------------------------|
+| **`static`**   | Default position; element stays in the document flow.                                              |
+| **`relative`** | Element stays in the flow but can be moved using `top`, `left`, etc., without affecting others.     |
+| **`absolute`** | Element is removed from the flow and positioned relative to the nearest `relative` or `absolute` parent. |
+| **`fixed`**    | Positioned relative to the viewport; doesn’t move during scrolling.                                |
+| **`sticky`**   | Acts like `relative` until it reaches a scroll position, then becomes `fixed`.                     |
+
+---
+
+### **Simplified Difference Between 2D and 3D Transforms**
+
+| **Aspect**      | **2D Transform**                              | **3D Transform**                                 |
+|------------------|-----------------------------------------------|-------------------------------------------------|
+| **Axes**         | Works on x and y axes.                        | Adds depth with the z-axis.                     |
+| **Appearance**   | Flat, like moving or rotating on a paper.      | Adds depth, like rotating a 3D box.             |
+| **Perspective**  | Not applicable.                               | Uses `perspective` to simulate depth.           |
+| **Use Cases**    | Sliding, scaling, and rotating 2D objects.     | Creating 3D effects like flipping cards or cubes.|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in animation on the what happne 
+
+
+div {
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+
+convert  to short formate 
+div {
+  animation: example 5s linear 2s infinite alternate;
+}
+
+animation-name:
+animation-duration:
+animation-timing-function:ease: Starts slowly, speeds up, and then slows down.
+                                linear: Constant speed from start to end.
+                                ease-in: Starts slowly and accelerates.
+                                ease-out: Starts quickly and decelerates.
+                                ease-in-out: Starts slowly, speeds up, and then slows down again.
+                                cubic-bezier(n,n,n,n): Allows custom control using Bézier curves.
+                                steps(n): Progresses in discrete steps, with n steps per iteration.
+                                step-start: The animation starts at a specific step.
+                                step-end: The animation ends at a specific step.
+                                frame: Progresses at a set number of frames during each iteration.
+                                short formate on the animation 
+animaition-delay:
+animation-iteration-count:(infinite)
+animation-direction:(normal: Animation plays forward (default).
+                      reverse: Animation plays backwards.
+                    alternate: Animation plays forward, then backward.
+                    alternate-reverse: Animation plays backward, then forward.
+                    )
+aanimation-fill-mode:Specifies the style for the target element when the animation is not playing:
+                                none: No style changes are applied outside the animation.
+                                forwards: Retais style from the last keyframe after the animation ends.
+                                backwards: Applies the style from the first keyframe before the animation starts.
+                                both: Applies both forwards and backwards styles.
+
+
+animation: <animation-name> <animation-duration> <animation-timing-function> <animation-delay> <animation-iteration-count> <animation-direction> <animation-fill-mode>;
+s
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation: move 4s ease-in-out 1s infinite alternate;
+}
+
+
+
+
+Sure! Here's a **summary of CSS animation properties** in a **simple table format** for beginners:
+
+| Property            | Description                                                                                       | Example Usage |
+|----------------------|---------------------------------------------------------------------------------------------------|----------------|
+| **`@keyframes`**      | Specifies the animation to be applied. Defines how styles change over time.                     | `@keyframes example { ... }` |
+| **`animation-name`**  | Binds the `@keyframes` rule to an element. Determines which keyframes to apply.                  | `animation-name: example;` |
+| **`animation-duration`** | Defines how long the animation will take.                                                        | `animation-duration: 4s;` |
+| **`animation-delay`** | Specifies when the animation should start.                                                     | `animation-delay: 2s;` |
+| **`animation-iteration-count`** | Specifies how many times the animation should run. Can also be set to `infinite`.                  | `animation-iteration-count: 3;` |
+| **`animation-direction`** | Controls the direction of the animation (forwards, backwards, alternate).                        | `animation-direction: reverse;` |
+| **`animation-timing-function`** | Specifies the speed curve of the animation.                                                  | `animation-timing-function: ease-in;` |
+| **`animation-fill-mode`** | Specifies what the element will look like before and after the animation.                        | `animation-fill-mode: forwards;` |
+| **`animation`**       | A shorthand property that combines all the above animation properties.                           | `animation: example 4s linear 2s 3 normal;` |
+
+---
+
+### **Explanation in Simple Terms**:
+- **`@keyframes`**: The rule that defines how styles change during the animation.
+- **`animation-name`**: Ties the keyframes to the element.
+- **`animation-duration`**: How long the animation takes from start to finish.
+- **`animation-delay`**: When the animation will start relative to the rest of the page.
+- **`animation-iteration-count`**: How many times the animation will repeat.
+- **`animation-direction`**: Whether the animation plays forwards, backwards, or alternates.
+- **`animation-timing-function`**: Controls how the animation speeds up or slows down (ease, linear, etc.).
+- **`animation-fill-mode`**: What the element looks like before or after the animation.
+- **`animation`**: A shorthand to set multiple animation properties at once.
+
+
+
+
+
+
+
+
+
+object fit 
+
+
+fill:Stretches the content to completely fill the container.
+     Aspect ratio may be distorted.
+contain:Scales the content to fit inside the container without cropping.
+        Maintains aspect ratio, but leaves empty space if the aspect ratios differ.
+cover:
+       Scales the content to completely cover the container.
+       Maintains aspect ratio but crops parts of the content if necessary.
+none:
+       Content is not resized.
+       Original dimensions are preserved.
+scale-down:
+Resizes the content to the smallest size using none or contain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+object fit 
+The `object-position` property in CSS defines the alignment of the replaced content (e.g., an image or video) inside its container, relative to the container's edges.
+
+### Explanation of Parameters:
+1. **First Parameter (Horizontal Offset):**  
+   - Indicates the horizontal alignment of the object within the container.  
+   - **`15%`** means the left edge of the object will be positioned 15% of the way across the container's width.
+
+2. **Second Parameter (Vertical Offset):**  
+   - Indicates the vertical alignment of the object within the container.  
+   - **`100%`** means the bottom edge of the object will align with the bottom edge of the container.
+
+### Visual Summary:
+- The object will be shifted **15% from the left** (horizontally) and **100% from the top** (vertically), effectively aligning it toward the bottom-left corner of the container.
+
+
+
+
+
+
+css media query 
+
+
+
+
+### **List of Common Media Queries for Websites**
+
+Here’s a structured list of commonly used media queries for website development:
+
+---
+
+#### **Breakpoints (Based on Screen Size)**
+
+1. **Mobile Phones (Portrait & Small Screens)**  
+   ```css
+   @media (max-width: 600px) {
+     /* Styles for small screens */
+   }
+   ```
+
+2. **Tablets (Medium Screens)**  
+   ```css
+   @media (min-width: 601px) and (max-width: 1024px) {
+     /* Styles for tablets */
+   }
+   ```
+
+3. **Laptops and Desktops (Large Screens)**  
+   ```css
+   @media (min-width: 1025px) and (max-width: 1440px) {
+     /* Styles for large screens */
+   }
+   ```
+
+4. **Extra-Large Screens (Monitors)**  
+   ```css
+   @media (min-width: 1441px) {
+     /* Styles for extra-large screens */
+   }
+   ```
+
+---
+
+#### **By Orientation**
+
+1. **Portrait Mode**  
+   ```css
+   @media (orientation: portrait) {
+     /* Styles for portrait orientation */
+   }
+   ```
+
+2. **Landscape Mode**  
+   ```css
+   @media (orientation: landscape) {
+     /* Styles for landscape orientation */
+   }
+   ```
+
+---
+
+#### **By Resolution (Retina/High-DPI Screens)**
+
+1. **High-Resolution Screens**  
+   ```css
+   @media (min-resolution: 2dppx) {
+     /* Styles for high-resolution screens */
+   }
+   ```
+
+2. **Low-Resolution Screens**  
+   ```css
+   @media (max-resolution: 1dppx) {
+     /* Styles for low-resolution screens */
+   }
+   ```
+
+---
+
+#### **By Device Capabilities**
+
+1. **Hover Devices (Desktops)**  
+   ```css
+   @media (hover: hover) {
+     /* Styles for devices with hover (e.g., mouse support) */
+   }
+   ```
+
+2. **Touch Devices (Mobile/Tablets)**  
+   ```css
+   @media (hover: none) {
+     /* Styles for touch devices */
+   }
+   ```
+
+---
+
+#### **Aspect Ratio**
+
+1. **Widescreen (16:9)**  
+   ```css
+   @media (aspect-ratio: 16/9) {
+     /* Styles for 16:9 aspect ratio screens */
+   }
+   ```
+
+2. **Square Screens**  
+   ```css
+   @media (aspect-ratio: 1/1) {
+     /* Styles for square screens */
+   }
+   ```
+
+---
+
+#### **For Printing**
+
+1. **Print Styles**  
+   ```css
+   @media print {
+     /* Styles for printing */
+   }
+   ```
+
+---
+
+#### **Custom Features**
+
+1. **Dark Mode**  
+   ```css
+   @media (prefers-color-scheme: dark) {
+     /* Styles for dark mode */
+   }
+   ```
+
+2. **Light Mode**  
+   ```css
+   @media (prefers-color-scheme: light) {
+     /* Styles for light mode */
+   }
+   ```
+
+---
+
+### **Example Use Case**
+Combine these for a responsive and adaptive design:
+```css
+/* Default (Mobile-First) */
+body {
+  font-size: 14px;
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  body {
+    font-size: 18px;
+  }
+}
+```
+
+You can pick and choose these media queries based on your website's design needs!
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid
+
+
+Grid (display: grid): The container spans the full width of its parent.
+Inline Grid (display: inline-grid): The container fits snugly around its grid content.
+
+
+
+
+
+
+
+
+
+font awaesome 
+
+
+    <script src="https://kit.fontawesome.com/cb9b83b315.js" crossorigin="anonymous"></script>
+
+
+
+    fa-3x
+    fa-lg
+
+
+anination icon
+    fa-spim 
+    fa-rotate-45
+    fa-beat        -> like sime up-down
+    fa-fade        =>opacity up down
+    fa-beat-fades     -> both apply
+    fa-bounce
+    fa-flip
+    fa-shake
+    fa-spin
+
+
+
+
+    duetone
+
+
+
+
+
+
+
+
+    Here’s a **summary** of the **Font Awesome icon types**:
+
+---
+
+### **1. Solid Icons (`fa-solid`)**
+- **Description**: Bold, filled icons.
+- **Use**: Default, for prominent UI elements.
+
+### **2. Regular Icons (`fa-regular`)**
+- **Description**: Outlined icons (no fill).
+- **Use**: Subtle, secondary elements.
+
+### **3. Brands Icons (`fa-brands`)**
+- **Description**: Logos of brands or social platforms.
+- **Use**: Linking to brands (e.g., Facebook, Twitter).
+
+### **4. Light Icons (`fa-light`)** *(Pro)*
+- **Description**: Thinner, delicate icons.
+- **Use**: Elegant, subtle designs.
+
+### **5. Duotone Icons (`fa-duotone`)** *(Pro)*
+- **Description**: Two-tone icons for depth.
+- **Use**: Modern, stylish designs.
+
+### **6. Thin Icons (`fa-thin`)** *(Pro)*
+- **Description**: Very thin, minimalist icons.
+- **Use**: Ultra-minimalistic design.
+
+### **7. Sharp Icons (`fa-sharp`)** *(Pro)*
+- **Description**: Pointed, angular icons.
+- **Use**: Sharp, angular design elements.
+
+---
+
+### **Modifiers**:
+- **`fa-inverse`**: Inverts icon color.
+- **`fa-fw`**: Fixed-width icons for alignment.
+- **`fa-spin`**: Spinning icons.
+- **`fa-pulse`**: Pulsing icons.
+
+---
+
+These types and modifiers offer flexibility for customizing the appearance of icons in your project. Let me know if you need further clarification! 😊
