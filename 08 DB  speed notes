@@ -611,3 +611,24 @@ SELECT * FROM employee WHERE department = 'HR';
 ---
 
 Would you like a full **Node.js with Sequelize** version for these too? I can build that for you step-by-step.
+
+
+
+
+
+
+| Concept               | Purpose                           | Benefit                          |
+| --------------------- | --------------------------------- | -------------------------------- |
+| Indexing              | Fast lookup/search                | Speeds up queries                |
+| Query Optimization    | Clean, minimal, efficient queries | Less CPU & memory                |
+| Schema Design         | Right structure for performance   | Efficient reads/writes           |
+| Caching               | Avoid repeated DB calls           | Lightning-fast responses         |
+| Connection Pooling    | Reuse DB connections              | Lower latency                    |
+| Batch Operations      | Insert/update/delete in bulk      | Less overhead                    |
+| Prepared Statements   | Reuse + security                  | Safer, faster queries            |
+| Monitoring            | Find issues in queries or DB      | Real-time improvement            |
+| Sharding/Partitioning | Split data smartly                | Handles large datasets           |
+| Triggers              | Auto logic on data changes        | Smart validations/adjustments    |
+| Views                 | Pre-defined filtered data         | Cleaner, reusable queries        |
+| Functions             | Custom reusable logic             | Simplifies repeated calculations |
+
