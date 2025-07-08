@@ -789,3 +789,184 @@ Let me know and I’ll prepare it!
 ---
 
 If you want, I can also help you with sample code or explain any topic more deeply! Would you like that?
+
+
+
+
+🔍 **NestJS na "all functions"** em kahie to e khubaj vast topic chhe,
+NestJS ek **modular full-stack backend framework** chhe je Angular-style decorators, services, guards, modules, interceptors, etc. vapre chhe.
+
+---
+
+## ✅ **Main Categories of NestJS Functions / Concepts**
+
+Tame easily yaad rakhva mate hu aa badha functions ne **categories + explanation + example** sathe aapu chhu:
+
+---
+
+## 1️⃣ **Core Decorators (Main NestJS Building Blocks)**
+
+| Function/Decorator      | Use                     | Example                     |
+| ----------------------- | ----------------------- | --------------------------- |
+| `@Module()`             | App/module define karva | `AppModule`                 |
+| `@Controller()`         | Routes banava           | `@Controller('users')`      |
+| `@Get()`, `@Post()`     | HTTP methods            | `@Get('id')`                |
+| `@Injectable()`         | Service banava          | `UserService`               |
+| `@Param()`              | URL param lavva         | `@Param('id')`              |
+| `@Query()`              | Query string lavva      | `@Query('page')`            |
+| `@Body()`               | POST body lavva         | `@Body() dto`               |
+| `@Req()` / `@Request()` | Full request access     | `@Req().user`               |
+| `@Res()`                | Raw response object     | Not recommended             |
+| `@Headers()`            | Header read karva       | `@Headers('auth')`          |
+| `@UseGuards()`          | Guard apply karva       | `@UseGuards(AuthGuard)`     |
+| `@UseInterceptors()`    | Interceptor lagadva     | For file upload, logging    |
+| `@UsePipes()`           | Validation lagadva      | `@UsePipes(ValidationPipe)` |
+
+---
+
+## 2️⃣ **Lifecycle Hooks**
+
+| Function                      | Use                          |
+| ----------------------------- | ---------------------------- |
+| `onModuleInit()`              | Module initialize time logic |
+| `onModuleDestroy()`           | Module destroy time          |
+| `beforeApplicationShutdown()` | App close time               |
+
+---
+
+## 3️⃣ **Providers / Dependency Injection**
+
+| Function        | Use                             |
+| --------------- | ------------------------------- |
+| `@Injectable()` | Class as a service              |
+| `@Inject()`     | Manually inject dependency      |
+| `forwardRef()`  | Circular dependency solve karva |
+
+---
+
+## 4️⃣ **Routing & Request Handlers**
+
+| Function      | Use                |
+| ------------- | ------------------ |
+| `@All()`      | All methods handle |
+| `@Put()`      | PUT method         |
+| `@Delete()`   | DELETE method      |
+| `@Patch()`    | PATCH method       |
+| `@HttpCode()` | Set status code    |
+| `@Redirect()` | Redirect user      |
+
+---
+
+## 5️⃣ **Authentication & Authorization**
+
+| Function                 | Use                             |
+| ------------------------ | ------------------------------- |
+| `@UseGuards()`           | Apply Guard                     |
+| `@Roles()`               | Role-based access               |
+| `@SetMetadata()`         | Custom metadata for roles, etc. |
+| `createParamDecorator()` | Custom decorator banavva        |
+| `PassportStrategy()`     | Custom strategy class           |
+| `ExecutionContext`       | Request context lavva in guard  |
+| `CanActivate`            | Guard interface                 |
+
+---
+
+## 6️⃣ **Validation & DTOs**
+
+| Function            | Use                                     |
+| ------------------- | --------------------------------------- |
+| `@IsString()`       | Field is string                         |
+| `@IsEmail()`        | Email validation                        |
+| `@Length()`         | String length                           |
+| `@ValidateNested()` | Nested validation                       |
+| `@Type()`           | Type transformation (class-transformer) |
+
+> 🎯 All above decorators come from `class-validator` and `class-transformer`
+
+---
+
+## 7️⃣ **File Upload (Multer Integration)**
+
+| Function             | Use                  |
+| -------------------- | -------------------- |
+| `@UploadedFile()`    | Single file lavva    |
+| `@UploadedFiles()`   | Multiple files lavva |
+| `FileInterceptor()`  | One file handle      |
+| `FilesInterceptor()` | Many files handle    |
+| `diskStorage()`      | Local file save      |
+| `fileFilter()`       | Type check           |
+
+---
+
+## 8️⃣ **Exception Handling**
+
+| Function                  | Use                  |
+| ------------------------- | -------------------- |
+| `HttpException`           | Throw error manually |
+| `BadRequestException()`   | 400 error            |
+| `UnauthorizedException()` | 401                  |
+| `NotFoundException()`     | 404                  |
+| `ExceptionFilter`         | Custom error handler |
+
+---
+
+## 9️⃣ **Pipes, Interceptors, Guards, Filters**
+
+| Type        | Interface         | Example               |
+| ----------- | ----------------- | --------------------- |
+| Pipe        | `PipeTransform`   | `ValidationPipe`      |
+| Guard       | `CanActivate`     | `AuthGuard`           |
+| Filter      | `ExceptionFilter` | `HttpExceptionFilter` |
+| Interceptor | `NestInterceptor` | `LoggingInterceptor`  |
+
+---
+
+## 🔟 **GraphQL Specific (If using @nestjs/graphql)**
+
+| Function                  | Use                   |
+| ------------------------- | --------------------- |
+| `@Resolver()`             | GraphQL controller    |
+| `@Query()`, `@Mutation()` | GraphQL methods       |
+| `@Args()`                 | GraphQL arguments     |
+| `@Context()`              | Access request object |
+
+---
+
+## 🔥 BONUS: Commonly Used Utility Functions
+
+| Function              | Use                     |
+| --------------------- | ----------------------- |
+| `JwtService.sign()`   | Token generate karva    |
+| `JwtService.verify()` | Token verify karva      |
+| `bcrypt.hash()`       | Password encrypt        |
+| `bcrypt.compare()`    | Password match          |
+| `Reflector.get()`     | Guard ma metadata lavva |
+| `classToPlain()`      | Class → plain object    |
+| `plainToInstance()`   | Plain → DTO instance    |
+
+---
+
+## 🧠 Smart Summary (Category-wise)
+
+| Category    | Examples                                    |
+| ----------- | ------------------------------------------- |
+| Controller  | `@Get()`, `@Post()`, `@Param()`             |
+| Auth        | `@UseGuards()`, `AuthGuard`, `RolesGuard`   |
+| Validation  | `@Body()`, DTO + class-validator decorators |
+| File Upload | `@UploadedFile()`, `FileInterceptor()`      |
+| Dependency  | `@Injectable()`, `@Inject()`                |
+| Utility     | `JwtService`, `bcrypt`, `Reflector`         |
+
+---
+
+## ✨ Want It as Table PDF or Flashcards?
+
+Mane kahjo — hu tamne **NestJS all function reference** ek PDF ya flashcard format ma prepare kari aapu for daily revision!
+
+Tame em pan kahjo:
+
+* Su tame **REST API project structure** vadhare samjva ma interested chho?
+* Ke tame interview prep j ma focus kari rahe chho?
+
+Hu full help ma chhu 💪
+
