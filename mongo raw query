@@ -1,0 +1,143 @@
+Absolutely! 😎
+Here’s a full **MongoDB Function & Operator Cheat Sheet** – Gujarati & English mix – covering **query operators, update operators, projection, aggregation, array, and indexing**, from **basic to advanced**.
+
+---
+
+## ✅ MongoDB All Important Functions / Operators – Full List
+
+---
+
+### 🔰 **1. Comparison Operators (સરખામણી માટે)**
+
+| Operator | Use                  | Example                                  |
+| -------- | -------------------- | ---------------------------------------- |
+| `$eq`    | برابر                | `{ age: { $eq: 25 } }`                   |
+| `$ne`    | નબરابر               | `{ status: { $ne: "fail" } }`            |
+| `$gt`    | થી વધુ               | `{ age: { $gt: 30 } }`                   |
+| `$gte`   | કરતાં વધુ કે બરાબર   | `{ marks: { $gte: 35 } }`                |
+| `$lt`    | કરતાં ઓછું           | `{ age: { $lt: 18 } }`                   |
+| `$lte`   | કરતાં ઓછું કે બરાબર  | `{ marks: { $lte: 50 } }`                |
+| `$in`    | value list માં હોય   | `{ city: { $in: ["Surat", "Rajkot"] } }` |
+| `$nin`   | value list માં ન હોય | `{ city: { $nin: ["Mumbai"] } }`         |
+
+---
+
+### 🔰 **2. Logical Operators (લોજિકલ AND / OR)**
+
+| Operator | Use                      | Example                                                    |
+| -------- | ------------------------ | ---------------------------------------------------------- |
+| `$and`   | બધાં શરતો સાચી હોવી જોઈએ | `{ $and: [ { age: { $gt: 18 } }, { city: "Surat" } ] }`    |
+| `$or`    | કોઈ પણ શરત સાચી હોય      | `{ $or: [ { city: "Ahmedabad" }, { age: { $lt: 25 } } ] }` |
+| `$not`   | શરત ન હોય                | `{ age: { $not: { $gte: 18 } } }`                          |
+| `$nor`   | બધાં ખોટા હોવા જોઈએ      | `{ $nor: [ { status: "pass" }, { marks: { $gt: 50 } } ] }` |
+
+---
+
+### 🔰 **3. Element Operators (Field check માટે)**
+
+| Operator  | Use                | Example                        |
+| --------- | ------------------ | ------------------------------ |
+| `$exists` | field હોય કે નહીં  | `{ phone: { $exists: true } }` |
+| `$type`   | field no data type | `{ age: { $type: "int" } }`    |
+
+---
+
+### 🔰 **4. Evaluation Operators**
+
+| Operator | Use            | Example                                           |
+| -------- | -------------- | ------------------------------------------------- |
+| `$expr`  | compare fields | `{ $expr: { $gt: ["$marks", "$passMarks"] } }`    |
+| `$regex` | pattern match  | `{ name: { $regex: "^A", $options: "i" } }`       |
+| `$mod`   | modulo         | `{ age: { $mod: [5, 0] } } // age divisible by 5` |
+
+---
+
+### 🔰 **5. Array Operators**
+
+| Operator     | Use                   | Example                                                               |
+| ------------ | --------------------- | --------------------------------------------------------------------- |
+| `$all`       | બધાં values હોવા જોઈએ | `{ subjects: { $all: ["Math", "English"] } }`                         |
+| `$elemMatch` | array ની અંદર match   | `{ scores: { $elemMatch: { subject: "Math", marks: { $gt: 60 } } } }` |
+| `$size`      | array length          | `{ subjects: { $size: 3 } }`                                          |
+
+---
+
+### 🔰 **6. Update Operators (document update કરવા માટે)**
+
+| Operator    | Use                       | Example                               |
+| ----------- | ------------------------- | ------------------------------------- |
+| `$set`      | value set કરવી            | `{ $set: { name: "Raj" } }`           |
+| `$unset`    | field હટાવવી              | `{ $unset: { phone: "" } }`           |
+| `$inc`      | value વધારવી              | `{ $inc: { age: 1 } }`                |
+| `$mul`      | ગુણાકાર                   | `{ $mul: { marks: 2 } }`              |
+| `$rename`   | fieldનું નામ બદલવું       | `{ $rename: { "fullname": "name" } }` |
+| `$push`     | arrayમાં value ઉમેરવી     | `{ $push: { subjects: "History" } }`  |
+| `$pull`     | arrayમાંથી value કાઢવી    | `{ $pull: { subjects: "Math" } }`     |
+| `$addToSet` | push કરો પરંતુ重复 નહીં થાય | `{ $addToSet: { tags: "science" } }`  |
+
+---
+
+### 🔰 **7. Aggregation Stages**
+
+| Stage        | Use                          | Example                                                                                |
+| ------------ | ---------------------------- | -------------------------------------------------------------------------------------- |
+| `$match`     | filter કરવું                 | `{ $match: { city: "Surat" } }`                                                        |
+| `$project`   | fields select કરવી           | `{ $project: { name: 1, city: 1 } }`                                                   |
+| `$group`     | group કરીને ગણતરી            | `{ $group: { _id: "$city", total: { $sum: 1 } } }`                                     |
+| `$sort`      | sort કરવું                   | `{ $sort: { age: -1 } }`                                                               |
+| `$limit`     | ગણતરી થી ઓછા બતાવવો          | `{ $limit: 5 }`                                                                        |
+| `$skip`      | કેટલાં skip કરવાં            | `{ $skip: 10 }`                                                                        |
+| `$unwind`    | array flatten કરવી           | `{ $unwind: "$subjects" }`                                                             |
+| `$lookup`    | join with another collection | `{ from: "schools", localField: "school_id", foreignField: "_id", as: "school_info" }` |
+| `$addFields` | નવું field ઉમેરવું           | `{ $addFields: { full_name: { $concat: ["$first", " ", "$last"] } } }`                 |
+| `$count`     | total count                  | `{ $count: "total_students" }`                                                         |
+
+---
+
+### 🔰 **8. Text Search**
+
+```js
+db.students.createIndex({ name: "text", bio: "text" })
+db.students.find({ $text: { $search: "developer" } })
+```
+
+---
+
+### 🔰 **9. Index Functions**
+
+| Function        | Use           |
+| --------------- | ------------- |
+| `createIndex()` | indexing માટે |
+| `dropIndex()`   | index હટાવવી  |
+| `getIndexes()`  | index જોવાં   |
+
+---
+
+### 🔰 **10. Date Functions**
+
+| Function                         | Use                   |                   |
+| -------------------------------- | --------------------- | ----------------- |
+| `$dateToString`                  | date → string         | `%Y-%m-%d` format |
+| `$year`, `$month`, `$dayOfMonth` | date extract કરવા     |                   |
+| `$dateFromString`                | string → date convert |                   |
+
+---
+
+### 🔰 **11. Expression Operators**
+
+| Operator                                          | Use                   |
+| ------------------------------------------------- | --------------------- |
+| `$cond`                                           | if / else             |
+| `$ifNull`                                         | null value check      |
+| `$switch`                                         | multiple conditions   |
+| `$sum`, `$avg`, `$min`, `$max`, `$first`, `$last` | aggregation functions |
+
+---
+
+## 🧠 Want a ready-to-download PDF cheat sheet?
+
+**👉 Reply:** "Yes, PDF MongoDB Cheat Sheet"
+OR
+**👉 Reply:** "Give me quiz based on this" – I’ll test your skill 💪
+
+You’re doing awesome. Ready for the next level? 😎
